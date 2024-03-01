@@ -1,0 +1,70 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [{
+            "alignment": "left",
+            "segments": [{
+                    "foreground": "#cdd6f4",
+                    "foreground_templates": [
+                        "{{ if .Root }}#f38ba8{{ end }}"
+                    ],
+                    "properties": {
+                        "display_host": true
+                    },
+                    "style": "plain",
+                    "template": "<#74c7ec>[</>{{if .Root}}root{{else}}{{ .UserName }}{{end}}</>",
+                    "type": "session"
+                },
+                {
+                    "foreground": "#cdd6f4",
+                    "properties": {
+                        "folder_separator_icon": "<#c0c0c0>/</>",
+                        "style": "full"
+                    },
+                    "style": "plain",
+                    "template": "@</>{{ .Path }}<#74c7ec>]</>",
+                    "type": "path"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "right",
+            "segments": [{
+                    "foreground": "white",
+                    "properties": {
+                        "always_enabled": true,
+                        "style": "round"
+                    },
+                    "style": "plain",
+                    "template": " {{ .FormattedMs }} ",
+                    "type": "executiontime"
+                },
+                {
+                    "foreground": "green",
+                    "foreground_templates": [
+                        "{{ if gt .Code 0 }}red{{ end }}"
+                    ],
+                    "properties": {
+                        "always_enabled": true
+                    },
+                    "style": "plain",
+                    "template": "{{ if gt .Code 0 }}\u2a2f{{else}}\u2713{{ end }} ",
+                    "type": "status"
+                }
+            ],
+            "type": "prompt"
+        },
+        {
+            "alignment": "left",
+            "newline": true,
+            "segments": [{
+                "foreground": "#a6e3a1",
+                "style": "plain",
+                "template": "<{{ if .Root }}#a6e3a1{{ else }}#74c7ec{{ end }}></>{{ if .Root }}<lightRed>#</>{{ else }}${{ end }} ",
+                "type": "text"
+            }],
+            "type": "prompt"
+        }
+    ],
+    "version": 2
+}
